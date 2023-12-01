@@ -78,4 +78,9 @@ main {
   height: 10px;
   background-color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.stop:hover {
+  background-color: #f00;
 }
