@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  font-family: 'Roboto Mono', monospace;
+  position: relative;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #fff;
+  color: #fff;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.circle::before {
+  content: '';
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  top: calc(50% - 80px);
+  left: calc(50% - 80px);
+  background-color: #1d1d1d;
+  z-index: -1;
+}
+
+.sphere {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  background-color: #fff;
+  animation: rotate 60s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes rotate {
+  from { transform: rotate(-90deg) translateX(60px); }
+  to { transform: rotate(270deg) translateX(60px); }
+}
+
+.buttons {
+  margin-top: 10px;
+  display: inline-flex;
+}
+
+.paused {
+  height: 10px;
+  border-width: 5px 0 5px 10px;
+  box-sizing: border-box;
+  margin-left: 15px;
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+  cursor: pointer;
+  transition: 100ms all ease;
+  will-change: border-width;
+}
+
+.running {
+  border-style: double;
+  border-width: 0 0 0 10px;
+}
+
+.stop {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
