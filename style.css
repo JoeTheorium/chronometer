@@ -42,11 +42,11 @@ main {
   top: calc(50% - 10px);
   left: calc(50% - 10px);
   background-color: #fff;
-  animation: rotate 60s linear infinite;
+  animation: rotation 60s linear infinite;
   animation-play-state: paused;
 }
 
-@keyframes rotate {
+@keyframes rotation {
   from { transform: rotate(-90deg) translateX(60px); }
   to { transform: rotate(270deg) translateX(60px); }
 }

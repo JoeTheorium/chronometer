@@ -1,8 +1,8 @@
-const stopWatch = documment.getElementById('stopWatch');
-const playPauseButton = documment.getElementById('play-pause');
-const sphere = documment.getElementById('sphere');
+const stopwatch = document.getElementById('stopwatch');
+const playPauseButton = document.getElementById('play-pause');
+const sphere = document.getElementById('sphere');
 
-let stopWatchInterval;
+let stopwatchInterval;
 let runningTime = 0;
 
 const playPause = () => {
@@ -21,10 +21,10 @@ const start = () => {
   sphere.style.animation = 'rotation 60s linear infinite';
   let startTime = Date.now() - runningTime;
   sphere.style.animationPlayState = 'running';
-  stopWatchInterval = setInterval( () => {
-    runningTime = Date.now() - startTime;
-    stopWatch.textContent = calculateTime(runningTime);
-  }, 1000)
+  stopwatchInterval = setInterval( () => {
+    runningTime = Date.now() - startTime
+    stopwatch.textContent = calculateTime(runningTime)
+  }, 1000);
 }
 
 const calculateTime = runningTime => {
@@ -38,6 +38,15 @@ const calculateTime = runningTime => {
 }
 
 const pause = () => {
-  sphere.style.animationPlayState = 'pause';
-  clearInterval(stopWatchInterval);
+  sphere.style.animationPlayState = 'paused';
+  clearInterval(stopwatchInterval);
+}
+
+const stop = () => {
+  sphere.style.transform = 'rotate(-90deg) translateX(60px)';
+  sphere.style.animation = 'none';
+  playPauseButton.classList.remove('running');
+  runningTime = 0;
+  stopwatch.textContent = '00:00';
+  clearInterval(stopwatchInterval);
 }
