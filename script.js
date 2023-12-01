@@ -36,3 +36,8 @@ const calculateTime = runningTime => {
 
   return `${display_minutes}:${display_seconds}`;
 }
+
+const pause = () => {
+  sphere.style.animationPlayState = 'pause';
+  clearInterval(stopWatchInterval);
+}
